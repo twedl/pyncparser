@@ -1,4 +1,4 @@
-DATA ELEMENT, TAG, DESCRIPTION, LENGTH, END TAG, CHARACTERISTIC, LIMITS, FORMAT 
+DATA ELEMENT,TAG,DESCRIPTION,LENGTH,END TAG,CHARACTERISTIC,LIMITS,FORMAT 
 SUBMISSION   ,<SUBMISSION> ,Initial dissemination tag.  Required. Tag only </SUBMISSION> ,NA ,NA ,NA 
 CORRECTION ,<CORRECTION> ,Identifies post acceptance correction transaction. This tag is only present  for a correction to a filing.  Optional., Tag only ,NA ,NA ,NA ,NA 
 TIMESTAMP ,<TIMESTAMP> ,Edgar Dissemination date-time used for Post Acceptance Corrections only. Defines the time which the correction is disseminated by EDGAR supplied by the R/A Subsystem.  Optional. ,15 ,NA  ,Date   ,NA ,YYYYMMDD:HHMMSS 

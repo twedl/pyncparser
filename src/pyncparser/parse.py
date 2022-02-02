@@ -20,6 +20,7 @@
 # from lxml import etree
 import os
 import pandas as pd
+from pyparsing import col
 # from io import StringIO, BytesIO
 # ugh idk what happening
 
@@ -34,8 +35,16 @@ def main():
     
     cc = pd.read_csv("pds-tags.csv")
     print(cc.head())
-    print(cc.transpose())
+    print(cc.loc[[2]].transpose())
+    # alright, in theory I have the tags and end tags, and that's all fi need
+    print(cc[["TAG", "END TAG"]])
+    # print(cc.columns)
+    # now I have every tag and whether they have an end tag or not
+    # except footnotes F1-F99
+    # also what they mean; e.g., page means nothing
     
+    
+    # strip, standardize, etc.
     # with open("copy-edgar-pds.dtd", mode = "rt") as g:
     # # with open("test/data/9999999997-22-000253.nc", mode = "rt") as f:
     #     dtd = g.read()
