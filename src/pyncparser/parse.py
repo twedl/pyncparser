@@ -70,44 +70,34 @@ def main():
     nc_doc = {}
     current_element = nc_doc
     parent_element = None
+    last_valid_tag = None
+
+    # wow this is pretty ugly
     for line in text:
         line_result = tag_re.search(line).groupdict()
-        print(line_result)
 
-        if line_result["tag"] in single_tags_set:
-            print(f"{line_result['tag']} in single")
-            current_element[line_result["tag"]] = line_result["content"]
-        elif line_result["tag"] in end_tags_dict:
-            print(f"{line_result['tag']} in end tag dict")
-            # shouldn't be any content, really.
-            if line_result["content"] != "":
-                logging.warning(f"idk what's going on here: {line_result}, maybe corrupt")
-                # also check if it doesn't match end tag
-            # add line_result to current_element
-            tag_stack.append((parent_element, end_tags_dict[line_result["tag"]])) # add end_tag to stack
+        current_tag = line_result["tag"]
+
+        if current_tag is not None:
+            last_valid_tag = current_tag
+
+        if current_tag in single_tags_set:
+            current_element[current_tag] = line_result["content"]
+        elif current_tag in end_tags_dict:
+            tag_stack.append((parent_element, end_tags_dict[current_tag])) # add end_tag to stack
             new_element = {}
             parent_element = current_element
-            current_element[line_result["tag"]] = new_element 
+            current_element[current_tag] = new_element 
             current_element = new_element
-        elif line_result["tag"] == tag_stack[-1][1]:
-            print("did we get here") # yes, apparently
+        elif current_tag == tag_stack[-1][1]:
             parent_element, _ = tag_stack.pop()
-            # try to go up one element? need to go up another one?
-            # this ends the current element, but if there's two or more end tags in a row, we need to keep going up
-            # so keep a stack of parent references along with the other stack thing?
             current_element = parent_element
-        else:
-            print(f"curr: {current_element}, line: {line}")
-            print(tag_stack)
-            # this should match tag_stack[0]
-            # so no tag, just push this to the next line? add it to...something?
-            # alright, still no text, that's alright
-            # no tag
+        elif current_tag is None:
             if not current_element:
-                current_element = line
+                current_element = [line]
+                parent_element[last_valid_tag] = current_element # changing reference to current element here. need reference to current element instead
             else:
-                current_element = current_element + line
-            # and catch some errors here
+                current_element.append(line)
 
     print(json.dumps(nc_doc, sort_keys = False, indent = 4))
 
