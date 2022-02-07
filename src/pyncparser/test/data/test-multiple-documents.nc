@@ -1,0 +1,57 @@
+<SUBMISSION>
+<PAPER>
+<ACCESSION-NUMBER>9999999997-22-000253
+<TYPE>19B-4E
+<PUBLIC-DOCUMENT-COUNT>1
+<FILING-DATE>20220128
+<EFFECTIVENESS-DATE>20220128
+<FILER>
+<COMPANY-DATA>
+<CONFORMED-NAME>Cboe EDGA Exchange, Inc.
+<CIK>0001473606
+<STATE-OF-INCORPORATION>DE
+<FISCAL-YEAR-END>1231
+</COMPANY-DATA>
+<FILING-VALUES>
+<FORM-TYPE>19B-4E
+<ACT>34
+<FILE-NUMBER>091-28596
+<FILM-NUMBER>22000711
+</FILING-VALUES>
+<BUSINESS-ADDRESS>
+<STREET1>8050 Marshall Drive
+<STREET2>Suite 120
+<CITY>Lenexa
+<STATE>KS
+<ZIP>66214
+<PHONE>201-942-8200
+</BUSINESS-ADDRESS>
+<MAIL-ADDRESS>
+<STREET1>8050 Marshall Drive
+<STREET2>Suite 120
+<CITY>Lenexa
+<STATE>KS
+<ZIP>66214
+</MAIL-ADDRESS>
+</FILER>
+<DOCUMENT>
+<TYPE>type-0xbrpbrp
+<SEQUENCE>sequence-0xbrpbrp
+<FILENAME>filename-0xbrpbrp
+<DESCRIPTION>description-0xbrpbrp
+<TEXT>
+This document was generated as part of a paper submission.
+Please reference the Document Control Number 22000711 for access to the original document.
+</TEXT>
+</DOCUMENT>
+<DOCUMENT>
+<TYPE>19B-4E
+<SEQUENCE>1
+<FILENAME>9999999997-22-000253.paper
+<DESCRIPTION>AUTO-GENERATED PAPER DOCUMENT
+<TEXT>
+This document was generated as part of a paper submission.
+Please reference the Document Control Number 22000711 for access to the original document.
+</TEXT>
+</DOCUMENT>
+</SUBMISSION>
