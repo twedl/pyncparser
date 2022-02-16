@@ -19,16 +19,9 @@ def get_tags(fname):
     tags = pd.read_csv(fname, dtype = dtypes)
     return tags[["tag", "end_tag"]]
 
-
-# can I detect mismatched tags here? <doc> <text> </doc> </text> ?
-    
-def main():
-
-    # later, use gzip file instead
-    # with open("src/pyncparser/test/data/9999999997-22-000253.nc", mode = "rt") as f:
-    #     text = f.read()
-    
-    with open("src/pyncparser/test/data/test-multiple-documents.nc", mode = "rt") as f:
+def parse(fname):
+    # parse text or parse filename?
+    with open(fname, mode = "rt") as f:
         text = f.read()
     tags = get_tags("pds-tags-pd.csv")
 
@@ -110,6 +103,16 @@ def main():
     # before writing, add filename = "999...253.nc" to object at top-level
     print(json.dumps(nc_doc, sort_keys = False, indent = 4))
 
+    
+def main():
+
+    # later, use gzip file instead
+    # with open("src/pyncparser/test/data/9999999997-22-000253.nc", mode = "rt") as f:
+    #     text = f.read()
+    fname = "src/pyncparser/test/data/test-multiple-documents.nc"
+    
+
+    parse(fname)
 
 if __name__ == "__main__":
     main()
